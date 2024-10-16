@@ -7,6 +7,7 @@ import helpers.Attach;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import pages.bookStore.BookStorePage;
 import pages.cart.CartPage;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -22,6 +23,11 @@ public class TestBase {
         Configuration.timeout = 10000;
         Configuration.baseUrl = "https://demoqa.com";
         RestAssured.baseURI = "https://demoqa.com";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+    }
+
+    @BeforeEach
+    void beforeEach(){
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
