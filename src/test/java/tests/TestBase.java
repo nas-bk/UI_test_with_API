@@ -8,14 +8,13 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import pages.bookStore.BookStorePage;
-import pages.cart.CartPage;
+import pages.BookStorePage;
 import io.qameta.allure.selenide.AllureSelenide;
 
 
 public class TestBase {
-    CartPage cartPage = new CartPage();
     BookStorePage bookStorePage = new BookStorePage();
+    String bookTitle;
 
     @BeforeAll
     static void beforeAll() {

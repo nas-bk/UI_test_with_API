@@ -24,6 +24,7 @@ public class BookSpec {
                 .build();
     }
 
+    public static ResponseSpecification bookStoreResponseSpec200 = responseSpec(200);
     public static ResponseSpecification bookStoreResponseSpec201 = responseSpec(201);
     public static ResponseSpecification bookStoreResponseSpec204 = responseSpec(204);
 

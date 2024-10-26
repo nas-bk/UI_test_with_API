@@ -2,6 +2,7 @@ package api.Book;
 
 import model.AddListOfBooksModel;
 import model.AuthResponseModel;
+import model.BookResponseModel;
 
 import static io.restassured.RestAssured.given;
 import static specs.BookSpec.*;
@@ -31,4 +32,17 @@ public class BooksApi {
                 .then()
                 .spec(bookStoreResponseSpec201);
     }
+
+    public static BookResponseModel getBooks(String bookIsbn) {
+        return given(bookStoreRequestSpec)
+                .queryParam("ISBN", bookIsbn)
+
+                .when()
+                .get("/Book")
+
+                .then()
+                .spec(bookStoreResponseSpec200)
+                .extract().as(BookResponseModel.class);
+    }
+
 }
