@@ -38,16 +38,14 @@ public class DemoqaUiWithApiTest extends TestBase {
 
         step("Проверить, что книга добавлена в корзину", () ->
                 bookTable
-                        .shouldHave(text(bookTitle))
-        );
+                        .shouldHave(text(bookTitle)));
 
         step("Удалить книгу из карзины", () ->
             bookStorePage
                     .deleteBookToCartUi(bookTitle));
 
         step("Проверить, что книга удалена", () ->
-            assertThat(bookTable)
-                    .isNotEqualTo(text(bookTitle)));
+                bookTable.shouldNotHave(text(bookTitle)));
 
     }
 }
